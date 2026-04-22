@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Anton&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Zolla';
+  src: url('/fonts/Zolla.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-navy: #3b6cbf;
+  --color-navy-deep: #1e3a78;
+  --color-navy-dark: #2d559a;
+  --color-navy-mid: #2a4d8f;
+  --color-navy-light: #4d7fd4;
+  --color-cream: #F5DDB4;
+  --color-cream-dark: #e8c98a;
+  --color-cream-muted: rgba(245,221,180,0.65);
+  --color-gold: #FFC107;
+  --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
+  --font-brand: 'Zolla', Georgia, serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-navy-deep);
+  color: var(--color-cream);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-navy-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-cream-dark); border-radius: 999px; }
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+.float-anim {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+/* Vertical text utility */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
