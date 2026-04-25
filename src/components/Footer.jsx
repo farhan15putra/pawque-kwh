@@ -8,7 +8,7 @@ const CONTAINER = {
   padding: '0 80px',
 };
 
-const WA_NUMBER = '088808132018'; // Ganti dengan nomor WA Pawque
+const WA_NUMBER = '6288808132018'; // Ganti dengan nomor WA Pawque
 const IG_HANDLE = 'pawqu.e';
 
 const Footer = () => (

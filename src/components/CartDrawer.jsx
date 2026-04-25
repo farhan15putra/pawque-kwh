@@ -4,7 +4,7 @@ import { useState } from 'react';
 import useCartStore from '../store/cartStore';
 import { formatPrice } from '../data/menu';
 
-const WHATSAPP_NUMBER = '088808132018';
+const WHATSAPP_NUMBER = '6288808132018';
 
 /* ── Reusable input style ── */
 const inputStyle = {
@@ -71,11 +71,12 @@ const CartDrawer = () => {
     const notesLine = orderInfo.notes.trim() ? `\nCatatan: ${orderInfo.notes}` : '';
 
     const message =
-      `Halo Pawque! 🐾\n\n` +
+      `Halo Pawque! \n\n` +
       `*Nama:* ${orderInfo.name}\n` +
-      `*Metode:* ${methodLine}${notesLine}\n\n` +
-      `*Pesanan:*\n${itemLines}\n\n` +
-      `*Total: ${formatPrice(totalPrice)}*\n\n` +
+      `*Metode:* ${methodLine}\n` +
+      `*Catatan:* ${orderInfo.notes}\n` +
+      `*Pesanan:*\n${itemLines}\n` +
+      `*Total: ${formatPrice(totalPrice)}*\n` +
       `Mohon konfirmasi ya, terima kasih!`;
 
     const encoded = encodeURIComponent(message);
