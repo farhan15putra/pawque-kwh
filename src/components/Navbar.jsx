@@ -1,11 +1,12 @@
-import { ShoppingBag, User } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { motion } from 'framer-motion';
 import useCartStore from '../store/cartStore';
 
 const NAV_LINKS = [
-  { label: 'Menu', href: '#menu', active: true },
-  { label: 'Tentang', href: '#tentang' },
+  { label: 'Home', href: '#hero' },
+  { label: 'Menu', href: '#menu' },
   { label: 'Lokasi', href: '#lokasi' },
+  { label: 'Contact', href: '#tentang' },
 ];
 
 const Navbar = () => {
@@ -96,22 +97,6 @@ const Navbar = () => {
 
         {/* ── Right: User + Cart ── */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <button
-            style={{
-              width: '40px', height: '40px',
-              borderRadius: '50%',
-              backgroundColor: 'rgba(245,221,180,0.1)',
-              border: '1px solid rgba(245,221,180,0.15)',
-              color: '#F5DDB4',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer',
-              transition: 'transform 0.2s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-          >
-            <User size={18} />
-          </button>
 
           <button
             id="navbar-cart-btn"
@@ -151,6 +136,7 @@ const Navbar = () => {
                   fontSize: '11px',
                   fontWeight: 800,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontFamily: 'var(--font-number)',
                 }}
               >
                 {totalItems}

@@ -8,7 +8,7 @@ const CONTAINER = {
   padding: '0 80px',
 };
 
-const WA_NUMBER = '6285156789012'; // Ganti dengan nomor WA Pawque
+const WA_NUMBER = '088808132018'; // Ganti dengan nomor WA Pawque
 const IG_HANDLE = 'pawqu.e';
 
 const Footer = () => (
@@ -100,7 +100,7 @@ const Footer = () => (
               style={{
                 borderRadius: '20px', padding: '24px',
                 backgroundColor: 'rgba(255,193,7,0.07)',
-                border: '1.5px solid rgba(255,193,7,0.25)',
+                border: '1.5px solid rgba(255,193,7,0.3)',
                 backdropFilter: 'blur(10px)',
               }}
             >
@@ -108,9 +108,9 @@ const Footer = () => (
                 <span style={{
                   fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: '0.68rem',
                   padding: '4px 12px', borderRadius: '999px',
-                  backgroundColor: 'rgba(255,193,7,0.18)', color: '#FFC107', letterSpacing: '0.06em',
+                  backgroundColor: 'rgba(74,222,128,0.18)', color: '#4ade80', letterSpacing: '0.06em',
                 }}>
-                  Coming Soon
+                  Ready
                 </span>
                 <ExternalLink size={13} style={{ color: 'rgba(245,221,180,0.25)' }} />
               </div>
@@ -122,7 +122,7 @@ const Footer = () => (
                 fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.8rem',
                 color: 'rgba(245,221,180,0.48)', lineHeight: 1.6,
               }}>
-                Pre-order via WhatsApp — anggota kami siap stand by dan antar ke lokasi kamu!
+                Melayani Kampus A, B, C, SB & luar kampus. Gratis ongkir, syarat & ketentuan berlaku.
               </p>
             </motion.div>
 
@@ -325,73 +325,73 @@ const Footer = () => (
               </p>
             </div>
 
-            {/* WA Button */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {/* WA & IG — subtle icon links */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <motion.a
                 href={`https://wa.me/${WA_NUMBER}?text=Halo%20Pawque!%20Saya%20mau%20tanya%20tentang%20menu%20dan%20cara%20order.`}
                 target="_blank" rel="noreferrer"
-                whileHover={{ scale: 1.03, x: 4 }}
+                whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '16px',
-                  padding: '18px 28px', borderRadius: '18px',
+                  display: 'flex', alignItems: 'center', gap: '14px',
+                  padding: '16px 20px', borderRadius: '16px',
                   textDecoration: 'none',
-                  background: 'linear-gradient(135deg, #25D366, #128C7E)',
-                  color: '#fff',
-                  boxShadow: '0 8px 28px rgba(37,211,102,0.3)',
+                  backgroundColor: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(245,221,180,0.12)',
                 }}
               >
                 <div style={{
-                  width: '44px', height: '44px', borderRadius: '12px',
-                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  width: '36px', height: '36px', borderRadius: '10px',
+                  backgroundColor: 'rgba(37,211,102,0.12)',
+                  border: '1px solid rgba(37,211,102,0.25)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   flexShrink: 0,
                 }}>
-                  <MessageCircle size={22} />
+                  <MessageCircle size={18} style={{ color: '#4ade80' }} />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: '0.95rem', marginBottom: '2px' }}>
+                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.88rem', color: '#F5DDB4', marginBottom: '2px' }}>
                     Chat di WhatsApp
                   </p>
-                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.78rem', opacity: 0.75 }}>
+                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '0.75rem', color: 'rgba(245,221,180,0.4)' }}>
                     Respons cepat · Pre-Order · Tanya apapun
                   </p>
                 </div>
-                <ArrowRight size={18} style={{ marginLeft: 'auto', opacity: 0.7 }} />
+                <ArrowRight size={16} style={{ marginLeft: 'auto', color: 'rgba(245,221,180,0.25)' }} />
               </motion.a>
 
               {/* IG Button */}
               <motion.a
                 href={`https://instagram.com/${IG_HANDLE}`}
                 target="_blank" rel="noreferrer"
-                whileHover={{ scale: 1.03, x: 4 }}
+                whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '16px',
-                  padding: '18px 28px', borderRadius: '18px',
+                  display: 'flex', alignItems: 'center', gap: '14px',
+                  padding: '16px 20px', borderRadius: '16px',
                   textDecoration: 'none',
-                  background: 'linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
-                  color: '#fff',
-                  boxShadow: '0 8px 28px rgba(220,39,67,0.25)',
+                  backgroundColor: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(245,221,180,0.12)',
                 }}
               >
                 <div style={{
-                  width: '44px', height: '44px', borderRadius: '12px',
-                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  width: '36px', height: '36px', borderRadius: '10px',
+                  backgroundColor: 'rgba(220,39,67,0.1)',
+                  border: '1px solid rgba(220,39,67,0.2)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   flexShrink: 0,
                 }}>
-                  <Link2 size={20} />
+                  <Link2 size={17} style={{ color: '#f472b6' }} />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: '0.95rem', marginBottom: '2px' }}>
+                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.88rem', color: '#F5DDB4', marginBottom: '2px' }}>
                     Follow Instagram
                   </p>
-                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.78rem', opacity: 0.75 }}>
-                    @{IG_HANDLE} · Update jadwal &amp; lokasi
+                  <p style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '0.75rem', color: 'rgba(245,221,180,0.4)' }}>
+                    @{IG_HANDLE} · Update jadwal & lokasi
                   </p>
                 </div>
-                <ArrowRight size={18} style={{ marginLeft: 'auto', opacity: 0.7 }} />
+                <ArrowRight size={16} style={{ marginLeft: 'auto', color: 'rgba(245,221,180,0.25)' }} />
               </motion.a>
             </div>
           </motion.div>

@@ -32,7 +32,7 @@ const FloatingCartButton = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center"
-            style={{ backgroundColor: '#ef4444', color: '#fff', fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+            style={{ backgroundColor: '#ef4444', color: '#fff', fontFamily: 'var(--font-number)' }}
           >
             {totalItems > 9 ? '9+' : totalItems}
           </motion.span>

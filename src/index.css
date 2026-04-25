@@ -1,9 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&family=Anton&display=swap');
 @import "tailwindcss";
 
 @font-face {
   font-family: 'Zolla';
-  src: url('/fonts/Zolla.ttf') format('truetype');
+  src: url('./font-pawque/Zolla.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zolla Outlined';
+  src: url('./font-pawque/Zolla Outlined.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,9 +27,11 @@
   --color-cream-dark: #e8c98a;
   --color-cream-muted: rgba(245,221,180,0.65);
   --color-gold: #FFC107;
-  --font-display: 'Bebas Neue', 'Anton', Impact, sans-serif;
+  --font-display: 'Zolla', 'Bebas Neue', 'Anton', Impact, sans-serif;
   --font-brand: 'Zolla', Georgia, serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-outlined: 'Zolla Outlined', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --font-number: 'Poppins', sans-serif;
 }
 
 * {

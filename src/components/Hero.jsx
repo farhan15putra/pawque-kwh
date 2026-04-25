@@ -126,13 +126,14 @@ const Hero = () => {
               Mulai dari
             </span>
             <span style={{
-              fontFamily: 'var(--font-display)',
+              fontFamily: 'var(--font-number)',
+              fontWeight: 800,
               fontSize: '3rem',
               color: '#FFC107',
               letterSpacing: '0.03em',
               lineHeight: 1,
             }}>
-              Rp 10K
+              Rp 8K
             </span>
           </motion.div>
 
@@ -192,7 +193,7 @@ const Hero = () => {
               fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.77rem',
               color: 'rgba(245,221,180,0.4)',
             }}>
-              Best seller di setiap Market Day
+              Paw-sitively the best choice! 🐾
             </span>
           </motion.div>
         </div>
@@ -273,7 +274,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* ── Thumbnail strip (2 products only) ── */}
+      {/* ── Thumbnail strip ── */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -292,7 +293,8 @@ const Hero = () => {
         }}>
           {[
             { label: 'Quesillo', price: 'Rp 15K', active: true },
-            { label: 'Fresh Lemonade', price: 'Rp 10K' },
+            { label: 'Fresh Lemonade', price: 'Rp 8K' },
+            { label: 'Pawfect Combo!', price: 'Rp 20K' },
           ].map((item, i) => (
             <div
               key={i}
@@ -326,7 +328,7 @@ const Hero = () => {
                   color: item.active ? '#1a2f5a' : '#F5DDB4', lineHeight: 1.3,
                 }}>{item.label}</p>
                 <p style={{
-                  fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: '0.75rem',
+                  fontFamily: 'var(--font-number)', fontWeight: 800, fontSize: '0.75rem',
                   color: item.active ? 'rgba(26,47,90,0.65)' : '#FFC107',
                 }}>{item.price}</p>
               </div>

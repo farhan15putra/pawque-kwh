@@ -167,7 +167,8 @@ const SpecialCard = ({ item, index }) => {
               Harga
             </span>
             <span style={{
-              fontFamily: 'var(--font-display)',
+              fontFamily: 'var(--font-number)',
+              fontWeight: 800,
               fontSize: '2rem', letterSpacing: '0.04em',
               color: isLeft ? '#FFC107' : '#60a5fa',
             }}>
@@ -322,14 +323,6 @@ const MenuSection = () => (
               <Flame size={11} />
               Popular
             </div>
-            <h2 style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(48px, 6vw, 80px)',
-              lineHeight: 0.95, letterSpacing: '0.03em',
-              color: '#F5DDB4',
-            }}>
-              MENU PILIHAN
-            </h2>
           </div>
           <a href="#" style={{
             display: 'flex', alignItems: 'center', gap: '8px',
