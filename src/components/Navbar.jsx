@@ -1,5 +1,6 @@
-import { ShoppingBag } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ShoppingBag, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import useCartStore from '../store/cartStore';
 
 const NAV_LINKS = [
@@ -12,140 +13,221 @@ const NAV_LINKS = [
 const Navbar = () => {
   const { toggleCart, items } = useCartStore();
   const totalItems = items.reduce((s, i) => s + i.qty, 0);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0,
-        zIndex: 50,
-        height: '72px',
-        backgroundColor: 'rgba(22, 48, 100, 0.92)',
-        backdropFilter: 'blur(24px)',
-        WebkitBackdropFilter: 'blur(24px)',
-        borderBottom: '1px solid rgba(245,221,180,0.1)',
-      }}
-    >
-      <div
+    <>
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
         style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: '0 48px',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
+          position: 'fixed',
+          top: 0, left: 0, right: 0,
+          zIndex: 50,
+          height: '64px',
+          backgroundColor: 'rgba(22, 48, 100, 0.95)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          borderBottom: '1px solid rgba(245,221,180,0.1)',
         }}
       >
-        {/* ── Logo only ── */}
-        <a href="#hero" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img
-            src="/elemen/Logo.png"
-            alt="Pawque"
-            style={{ height: '44px', width: 'auto' }}
-          />
-        </a>
-
-        {/* ── Center Nav ── */}
         <div
           style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            padding: '0 20px',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
-            gap: '4px',
-            backgroundColor: 'rgba(245,221,180,0.07)',
-            border: '1px solid rgba(245,221,180,0.12)',
-            borderRadius: '999px',
-            padding: '6px 8px',
+            justifyContent: 'space-between',
           }}
         >
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
+          {/* ── Logo ── */}
+          <a href="#hero" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img
+              src="/elemen/Logo.png"
+              alt="Pawque"
+              style={{ height: '40px', width: 'auto' }}
+            />
+          </a>
+
+          {/* ── Center Nav — hidden on mobile ── */}
+          <div className="nav-desktop-links">
+            <div
               style={{
-                fontFamily: 'var(--font-body)',
-                fontWeight: 700,
-                fontSize: '0.875rem',
-                padding: '8px 22px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                backgroundColor: 'rgba(245,221,180,0.07)',
+                border: '1px solid rgba(245,221,180,0.12)',
                 borderRadius: '999px',
-                color: link.active ? '#1a2f5a' : 'rgba(245,221,180,0.75)',
-                backgroundColor: link.active ? '#FFC107' : 'transparent',
-                textDecoration: 'none',
-                transition: 'all 0.2s ease',
-                whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={(e) => {
-                if (!link.active) {
-                  e.currentTarget.style.color = '#F5DDB4';
-                  e.currentTarget.style.backgroundColor = 'rgba(245,221,180,0.08)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!link.active) {
-                  e.currentTarget.style.color = 'rgba(245,221,180,0.75)';
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                }
+                padding: '6px 8px',
               }}
             >
-              {link.label}
-            </a>
-          ))}
-        </div>
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: 700,
+                    fontSize: '0.875rem',
+                    padding: '8px 18px',
+                    borderRadius: '999px',
+                    color: 'rgba(245,221,180,0.75)',
+                    backgroundColor: 'transparent',
+                    textDecoration: 'none',
+                    transition: 'all 0.2s ease',
+                    whiteSpace: 'nowrap',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#F5DDB4';
+                    e.currentTarget.style.backgroundColor = 'rgba(245,221,180,0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'rgba(245,221,180,0.75)';
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
 
-        {/* ── Right: User + Cart ── */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {/* ── Right: Cart + Hamburger ── */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <button
+              id="navbar-cart-btn"
+              onClick={toggleCart}
+              style={{
+                position: 'relative',
+                display: 'flex', alignItems: 'center', gap: '8px',
+                backgroundColor: '#FFC107',
+                color: '#1a2f5a',
+                fontFamily: 'var(--font-body)',
+                fontWeight: 800,
+                fontSize: '0.875rem',
+                padding: '9px 18px',
+                borderRadius: '999px',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 4px 16px rgba(255,193,7,0.3)',
+                transition: 'transform 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+            >
+              <ShoppingBag size={17} />
+              <span className="cart-label-text">Keranjang</span>
+              {totalItems > 0 && (
+                <motion.span
+                  key={totalItems}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  style={{
+                    position: 'absolute',
+                    top: '-8px', right: '-8px',
+                    width: '20px', height: '20px',
+                    borderRadius: '50%',
+                    backgroundColor: '#ef4444',
+                    color: '#fff',
+                    fontSize: '11px',
+                    fontWeight: 800,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'var(--font-number)',
+                  }}
+                >
+                  {totalItems}
+                </motion.span>
+              )}
+            </button>
 
-          <button
-            id="navbar-cart-btn"
-            onClick={toggleCart}
-            style={{
-              position: 'relative',
-              display: 'flex', alignItems: 'center', gap: '8px',
-              backgroundColor: '#FFC107',
-              color: '#1a2f5a',
-              fontFamily: 'var(--font-body)',
-              fontWeight: 800,
-              fontSize: '0.875rem',
-              padding: '10px 22px',
-              borderRadius: '999px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 4px 16px rgba(255,193,7,0.3)',
-              transition: 'transform 0.2s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-          >
-            <ShoppingBag size={17} />
-            <span className="hidden sm:inline">Keranjang</span>
-            {totalItems > 0 && (
-              <motion.span
-                key={totalItems}
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                style={{
-                  position: 'absolute',
-                  top: '-8px', right: '-8px',
-                  width: '20px', height: '20px',
-                  borderRadius: '50%',
-                  backgroundColor: '#ef4444',
-                  color: '#fff',
-                  fontSize: '11px',
-                  fontWeight: 800,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'var(--font-number)',
-                }}
-              >
-                {totalItems}
-              </motion.span>
-            )}
-          </button>
+            {/* Hamburger — mobile only */}
+            <button
+              className="nav-hamburger"
+              onClick={() => setMobileOpen((v) => !v)}
+              id="nav-hamburger-btn"
+              aria-label="Toggle menu"
+              style={{
+                display: 'none',
+                background: 'rgba(245,221,180,0.1)',
+                border: '1px solid rgba(245,221,180,0.15)',
+                borderRadius: '10px',
+                color: '#F5DDB4',
+                padding: '8px',
+                cursor: 'pointer',
+              }}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
-      </div>
-    </motion.nav>
+      </motion.nav>
+
+      {/* ── Mobile Menu Drawer ── */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="mob-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMobile}
+              style={{
+                position: 'fixed', inset: 0, zIndex: 48,
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                backdropFilter: 'blur(4px)',
+              }}
+            />
+            {/* Panel */}
+            <motion.div
+              key="mob-panel"
+              initial={{ y: '-100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '-100%' }}
+              transition={{ type: 'spring', damping: 26, stiffness: 280 }}
+              style={{
+                position: 'fixed', top: '64px', left: 0, right: 0, zIndex: 49,
+                background: 'linear-gradient(180deg, #1a3060 0%, #2d559a 100%)',
+                borderBottom: '1px solid rgba(245,221,180,0.12)',
+                padding: '20px 24px 28px',
+                display: 'flex', flexDirection: 'column', gap: '8px',
+              }}
+            >
+              {NAV_LINKS.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  onClick={closeMobile}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: 700,
+                    fontSize: '1.1rem',
+                    padding: '14px 18px',
+                    borderRadius: '14px',
+                    color: '#F5DDB4',
+                    textDecoration: 'none',
+                    backgroundColor: 'rgba(245,221,180,0.06)',
+                    border: '1px solid rgba(245,221,180,0.1)',
+                  }}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

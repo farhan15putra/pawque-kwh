@@ -32,7 +32,7 @@ const FloatingCats = ({ count = 14, seed = 0 }) => {
         src: CAT_SPRITES[Math.floor(r(0) * CAT_SPRITES.length)],
         left: `${2 + r(1) * 93}%`,
         top: `${r(2) * 100}%`,
-        size: 68 + Math.floor(r(3) * 56),    // 68–124px (lebih besar)
+        size: 80 + Math.floor(r(3) * 56),    // 68–124px (lebih besar)
         rotate: -30 + r(4) * 60,
         floatY: 14 + r(5) * 20,
         floatDuration: 3 + r(6) * 4,
