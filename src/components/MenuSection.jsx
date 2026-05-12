@@ -310,13 +310,18 @@ const MenuSection = () => (
               Popular
             </div>
           </div>
-          <a href="#" style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.875rem',
-            color: '#FFC107', textDecoration: 'none',
-            paddingBottom: '4px',
-            borderBottom: '1px solid rgba(255,193,7,0.3)',
-          }}>
+          <a 
+            href="https://wa.me/6288808132018" 
+            target="_blank" 
+            rel="noreferrer" 
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              fontFamily: 'var(--font-body)', fontWeight: 700, fontSize: '0.875rem',
+              color: '#FFC107', textDecoration: 'none',
+              paddingBottom: '4px',
+              borderBottom: '1px solid rgba(255,193,7,0.3)',
+            }}
+          >
             Order via WA
             <ArrowRight size={15} />
           </a>
