@@ -4,8 +4,9 @@ import useCartStore from '../store/cartStore';
 import { menuItems, formatPrice } from '../data/menu';
 import FloatingCats from './FloatingCats';
 import elemenFix from '../assets/elemen pawque/elemen_fix__1_-removebg-preview (1).png';
-import fotoQuesillo from '../assets/Screenshot 2026-04-21 203926.png';
-import fotoLemonade from '../assets/Screenshot 2026-04-21 203950.png';
+import fotoQuesillo from '../assets/Quesillo.png';
+import fotoLemonade from '../assets/Lemonade.png';
+import fotoBundle from '../assets/Bundle.png';
 
 /* ─── Marquee ─── */
 const MarqueeTicker = ({ reverse = false }) => {
@@ -36,7 +37,7 @@ const MarqueeTicker = ({ reverse = false }) => {
 /* ─── Special 2-Product Card ─── */
 const SpecialCard = ({ item, index }) => {
   const { addItem } = useCartStore();
-  const isLeft = index === 0;
+  const isLeft = index % 2 === 0;
 
   return (
     <motion.div
@@ -202,7 +203,7 @@ const SpecialCard = ({ item, index }) => {
 const MenuSection = () => (
   <>
     {/* Marquee 1 */}
-    <div id="menu">
+    <div>
       <MarqueeTicker />
     </div>
 
@@ -274,7 +275,7 @@ const MenuSection = () => (
     <MarqueeTicker reverse />
 
     {/* ══ 2-Product Special Section ══ */}
-    <section style={{
+    <section id="menu" style={{
       position: 'relative',
       overflow: 'hidden',
       background: 'linear-gradient(180deg, #2d559a 0%, #3b6cbf 100%)',
@@ -324,7 +325,11 @@ const MenuSection = () => (
         {/* 2-Column product grid */}
         <div className="product-grid">
           {menuItems.map((item, index) => {
-            const photo = item.id === 1 ? fotoQuesillo : fotoLemonade;
+            let photo = item.image;
+            if (item.id === 1) photo = fotoQuesillo;
+            else if (item.id === 2) photo = fotoLemonade;
+            else if (item.id === 3) photo = fotoBundle;
+
             return (
               <SpecialCard key={item.id} item={{ ...item, image: photo }} index={index} />
             );

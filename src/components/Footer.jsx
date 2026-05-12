@@ -390,23 +390,6 @@ const Footer = () => (
               Terima kasih sudah mampir! Kami akan segera hadir di Market Day kampus. Stay tuned ya!
             </p>
 
-            <motion.a
-              href={`https://wa.me/${WA_NUMBER}`}
-              target="_blank" rel="noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                width: '56px', height: '56px', borderRadius: '50%',
-                backgroundColor: '#FFC107',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: '#1a2f5a',
-                boxShadow: '0 8px 28px rgba(255,193,7,0.4)',
-                textDecoration: 'none',
-              }}
-            >
-              <ArrowRight size={22} />
-            </motion.a>
-
             <motion.img
               src="/elemen/seneng.png"
               alt="Mascot"
@@ -426,9 +409,9 @@ const Footer = () => (
       padding: '48px 0 0 0',
     }}>
       <div className="footer-container">
-        <div className="footer-bottom-grid">
+        <div style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', marginBottom: '40px' }}>
           {/* Brand */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <img src="/elemen/Logo.png" alt="Pawque" style={{ height: '38px' }} />
               <span style={{ fontFamily: 'var(--font-brand)', color: '#F5DDB4', fontSize: '1.25rem', letterSpacing: '0.06em' }}>
@@ -437,53 +420,10 @@ const Footer = () => (
             </div>
             <p style={{
               fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.82rem',
-              lineHeight: 1.75, color: 'rgba(245,221,180,0.36)', maxWidth: '280px',
+              lineHeight: 1.75, color: 'rgba(245,221,180,0.36)', maxWidth: '320px',
             }}>
               Quesillo autentik &amp; Lemonade segar. Setiap gigitan adalah petualangan rasa!
             </p>
-          </div>
-
-          {/* Subscribe */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Mail size={14} style={{ color: '#FFC107' }} />
-              <span style={{
-                fontFamily: 'var(--font-body)', fontWeight: 800, fontSize: '0.68rem',
-                letterSpacing: '0.16em', textTransform: 'uppercase', color: '#FFC107',
-              }}>
-                Subscribe
-              </span>
-            </div>
-            <p style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.82rem', color: 'rgba(245,221,180,0.38)', lineHeight: 1.6 }}>
-              Daftarkan email kamu dan jadi yang pertama tahu jadwal Market Day kami!
-            </p>
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <input
-                type="email"
-                placeholder="Masukkan email kamu"
-                style={{
-                  flex: 1, padding: '12px 16px', borderRadius: '12px',
-                  border: '1px solid rgba(245,221,180,0.15)',
-                  backgroundColor: 'rgba(245,221,180,0.07)',
-                  color: '#F5DDB4',
-                  fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.82rem',
-                  outline: 'none',
-                  minWidth: 0,
-                }}
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                  padding: '12px 18px', borderRadius: '12px', border: 'none',
-                  backgroundColor: '#FFC107', color: '#1a2f5a', cursor: 'pointer',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  flexShrink: 0,
-                }}
-              >
-                <ArrowRight size={16} />
-              </motion.button>
-            </div>
           </div>
         </div>
 

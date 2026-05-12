@@ -19,7 +19,7 @@ export const menuItems = [
     price: 8000,
     category: 'drink',
     image: '/elemen/produk-lemonade.jpg',
-    badge: 'Favorit',
+    //badge: 'Favorit',
     badgeColor: '#60a5fa',
   },
   {
@@ -30,7 +30,7 @@ export const menuItems = [
     price: 20000,
     category: 'bundle',
     image: '/elemen/Logo.png',
-    badge: 'Special Deal',
+    //badge: 'Special Deal',
     badgeColor: '#ef4444',
   },
 ];
